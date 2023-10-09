@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "tags": ["programming", "web development"],
+        "data": "Course data 1",
+        "name": "Web Development Fundamentals",
+        "author": "John Smith",
+        "ispublished": true,
+        "price": 49.99
+    },
+    {
+        "id": 2,
+        "tags": ["programming", "data science"],
+        "data": "Course data 2",
+        "name": "Introduction to Data Science",
+        "author": "Alice Johnson",
+        "ispublished": true,
+        "price": 59.99
+    },
+    {
+        "id": 3,
+        "tags": ["design", "user experience"],
+        "data": "Course data 3",
+        "name": "User Experience Design",
+        "author": "Emily Davis",
+        "ispublished": true,
+        "price": 39.99
+    },
+    {
+        "id": 4,
+        "tags": ["programming", "mobile app development"],
+        "data": "Course data 4",
+        "name": "Mobile App Development with React Native",
+        "author": "David Wilson",
+        "ispublished": true,
+        "price": 54.99
+    },
+    {
+        "id": 5,
+        "tags": ["business", "marketing"],
+        "data": "Course data 5",
+        "name": "Digital Marketing Strategies",
+        "author": "Sarah Anderson",
+        "ispublished": true,
+        "price": 69.99
+    },
+    {
+        "id": 6,
+        "tags": ["programming", "machine learning"],
+        "data": "Course data 6",
+        "name": "Machine Learning Fundamentals",
+        "author": "Michael Brown",
+        "ispublished": true,
+        "price": 49.99
+    },
+    {
+        "id": 7,
+        "tags": ["design", "graphic design"],
+        "data": "Course data 7",
+        "name": "Graphic Design Mastery",
+        "author": "Sophia Lee",
+        "ispublished": true,
+        "price": 44.99
+    },
+    {
+        "id": 8,
+        "tags": ["programming", "web development"],
+        "data": "Course data 8",
+        "name": "Advanced JavaScript Techniques",
+        "author": "James Carter",
+        "ispublished": true,
+        "price": 59.99
+    },
+    {
+        "id": 9,
+        "tags": ["business", "leadership"],
+        "data": "Course data 9",
+        "name": "Leadership Skills for Success",
+        "author": "Robert Johnson",
+        "ispublished": true,
+        "price": 49.99
+    },
+    {
+        "id": 10,
+        "tags": ["programming", "frontend development"],
+        "data": "Course data 10",
+        "name": "Frontend Web Development with HTML and CSS",
+        "author": "Laura Smith",
+        "ispublished": true,
+        "price": 39.99
+    }
+]
