@@ -6,17 +6,18 @@ mongoose
   .catch((err) => console.log("error when connecting", err.message));
 
 //schema
-// createCourse();
 
 async function createCourse() {
   try {
     //Model
     //new course
-    const newCourse1 = new CourseModel({
-      duration: "45 Months",
-      author: "ibrna ",
-      isPublished: true,
+    const newCourse1 =  new CourseModel({
+      author: "Abdullah",
+      ispublished: true,
       price: 12,
+      tags:['fsfsf'],
+      data:'Fundmentals',
+      name:'Mobile Development by abdullah'
     });
     //saving Model
     const result = await newCourse1.save();
@@ -25,6 +26,8 @@ async function createCourse() {
     console.log(err);
   }
 }
+// createCourse();
+
 // getCourses();
 async function getCourses() {
   try {
@@ -73,4 +76,4 @@ async function removeCourse(id) {
     console.log("====================================");
   }
 }
-removeCourse("65240eae23c274cb48d72ceb");
+// removeCourse("65240eae23c274cb48d72ceb");

@@ -1,11 +1,17 @@
 const mongoose = require('mongoose');
 const courseSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-        required: true,
-    },
     tags: {
         type: [String],
+        validate:{
+            validator:function(v)
+            {
+                
+                    const result =  v.length > 0
+                    return (result)
+                
+            },
+            message:"course should have at least one or more tag"
+        },
         required: true,
     },
     data: {
@@ -19,6 +25,7 @@ const courseSchema = new mongoose.Schema({
     author: {
         type: String,
         required: true,
+        enum:["Abdullah","Ibrahim"]
     },
     ispublished: {
         type: Boolean,
@@ -26,7 +33,7 @@ const courseSchema = new mongoose.Schema({
     },
     price: {
         type: Number,
-        required: true,
+        required: function(){return this.ispublished},
     },
 });
 const Course = mongoose.model('Course',courseSchema)
