@@ -1,11 +1,13 @@
 const express = require('express')
 const app = express();
 const genresRouter = require('./routes/genres')
+const customerRouter = require('./routes/Customers')
 const mongoose = require('mongoose')
 //middlewares
 
 app.use(express.json());
 app.use('/api/genres',genresRouter);
+app.use('/api/customer',customerRouter);
 
 //connect to db 
 mongoose.connect("mongodb://127.0.0.1/vidly-api")
