@@ -6,7 +6,7 @@ const Genre= require('../Models/Genres')
 //route handler
 router.get('/',async(req,res)=>{
     try {
-        const movies= await Movie.find()
+        const movies= await Movie.find().populate("genre","name")
         res.send(movies);
     }catch(err)
     {
@@ -38,9 +38,7 @@ try {
         title:req.body.title,
         numbreInStock:req.body.numbreInStock,
         dailyRentalRate:req.body.dailyRentalRate,
-        genre:new Genre({
-            name:req.body.genre.name
-        }),
+        genre:req.body.genreId,
     })
     const result = await movie.save()
     res.send(result);
@@ -66,7 +64,7 @@ router.put('/:id',async(req,res)=>{
         movie.title = req.body.title
         movie.numbreInStock = req.body.numbreInStock
         movie.dailyRentalRate = req.body.dailyRentalRate
-        movie.genre = req.body.genre
+        movie.genre = req.body.genreId
         const result = await movie.save()
         res.send(result);
     }catch(err)
@@ -93,9 +91,7 @@ function validateMovie(Movie){
         title:Joi.string().min(5).required(),
         numbreInStock:Joi.number().min(10).required(),
         dailyRentalRate:Joi.number().required(),
-        genre:Joi.object({
-            name:Joi.string().min(5).required()
-        })
+        genreId:Joi.string().required()   
     })
     return schema.validate(Movie)
 }

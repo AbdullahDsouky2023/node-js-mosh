@@ -18,15 +18,10 @@ const movieSchema = new mongoose.Schema({
         required:true,
         default:0
     },
-    genre:new mongoose.Schema({
-        name:{
-            type:String,
-            required:true,
-            uppercase:true,
-            minlength:3,
-            maxlength:100
-        }
-    })
+    genre:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Genres"
+    }
 })
 
 const Movie = mongoose.model('Movies',movieSchema)
