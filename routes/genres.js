@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const Joi =require('joi')
 const Genre= require('../Models/Genres')
+const auth = require('../middlewares/auth')
 //route handler
 router.get('/',async(req,res)=>{
     try {
@@ -27,7 +28,7 @@ router.get('/:id',async(req,res)=>{
         console.log(err)
     }
 })
-router.post('/',async(req,res)=>{
+router.post('/',auth,async(req,res)=>{
 try {
 
     const {error} = validateGenre(req.body);
@@ -43,7 +44,7 @@ try {
     console.log(err)
 }
 })
-router.put('/:id',async(req,res)=>{
+router.put('/:id',auth,async(req,res)=>{
     try {
 
         const genreId = req.params.id
@@ -65,7 +66,7 @@ router.put('/:id',async(req,res)=>{
         console.log(err)
     }
 })
-router.delete('/:id',async(req,res)=>{
+router.delete('/:id',auth,async(req,res)=>{
     try {
 
         const genreId = req.params.id

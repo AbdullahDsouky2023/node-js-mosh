@@ -3,6 +3,8 @@ const router = express.Router();
 const Joi =require('joi')
 const Movie= require('../Models/movies')
 const Genre= require('../Models/Genres')
+const auth = require('../middlewares/auth')
+const admin = require('../middlewares/admin')
 //route handler
 router.get('/',async(req,res)=>{
     try {
@@ -28,7 +30,7 @@ router.get('/:id',async(req,res)=>{
         console.log(err)
     }
 })
-router.post('/',async(req,res)=>{
+router.post('/',auth,async(req,res)=>{
 try {
 
     const {error} = validateMovie(req.body);
@@ -47,7 +49,7 @@ try {
    res.send(err.message).status(404)
 }
 })
-router.put('/:id',async(req,res)=>{
+router.put('/:id',auth,async(req,res)=>{
     try {
 
         const MovieID = req.params.id
@@ -72,7 +74,7 @@ router.put('/:id',async(req,res)=>{
         res.send(err.message)
     }
 })
-router.delete('/:id',async(req,res)=>{
+router.delete('/:id',[auth,admin],async(req,res)=>{
     try {
 
         const MovieId = req.params.id

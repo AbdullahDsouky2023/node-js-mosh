@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const Joi =require('joi')
 const Customer= require('../Models/Customer')
+const auth = require('../middlewares/auth')
 //route handler
 router.get('/',async(req,res)=>{
     try {
@@ -27,7 +28,7 @@ router.get('/:id',async(req,res)=>{
         console.log(err)
     }
 })
-router.post('/',async(req,res)=>{
+router.post('/',auth,async(req,res)=>{
 try {
 
     const {error} = validateCustomer(req.body);
@@ -45,7 +46,7 @@ try {
     console.log(err)
 }
 })
-router.put('/:id',async(req,res)=>{
+router.put('/:id',auth,async(req,res)=>{
     try {
 
         const customerID = req.params.id
@@ -69,7 +70,7 @@ router.put('/:id',async(req,res)=>{
         console.log(err)
     }
 })
-router.delete('/:id',async(req,res)=>{
+router.delete('/:id',auth,async(req,res)=>{
     try {
 
         const customerId = req.params.id
